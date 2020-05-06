@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D3 JS visualisering</title>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  </head>
+  <body>
+ <h1>Tidsresor med enter()</h1>
+<script>
+//höjden på rektanglar i barcharten
+var dataTable = [30, 50, 70, 80, 40];
+var height = 200;
+var width = 400;
+var barWidth = 40;
+
+var canvas = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", 200)
+    .style("background", "lightgrey");
+
+    canvas.selectAll("staplar")
+        .data(dataTable)
+
+        .enter()
+          .append("rect")
+          .attr("height", function(data){return data; })
+          .attr("width", barWidth)
+          .attr("x", function(data, i){return 50*i})
+          .attr("y", function(data){return height - data;});
+</script>
+    
+  </body>
+</html>
