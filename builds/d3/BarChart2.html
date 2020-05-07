@@ -11,10 +11,7 @@
  <h1>Tidsresor med enter()</h1>
 <script>
 //höjden på rektanglar i barcharten
-var dataTable = [30, 50, 70, 80, 40];
-var height = 200;
-var width = 400;
-var barWidth = 40;
+var dataTable = [30, 50, 70, 80, 45], height = 200, width = 400, barWidth = 40, barMargin = 40;
 
 var canvas = d3.select("body")
     .append("svg")
@@ -29,7 +26,7 @@ var canvas = d3.select("body")
           .append("rect")
           .attr("height", function(data){return data; })
           .attr("width", barWidth)
-          .attr("x", function(data, i){return 50*i})
+          .attr("x", function(data, i){return (barWidth + barMargin) *i })
           .attr("y", function(data){return height - data;});
 </script>
     
