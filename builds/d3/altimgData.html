@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D3 JS visualisering</title>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  </head>
+  <body>
+ <h1>Tidsresor med enter()</h1>
+
+ <h1>Läs in en bild med js</h1>
+    <input type="file" id="infile">
+    <img id="input" src="image.jpg" hidden />
+    <canvas id="canvas"></canvas>
+
+<script>
+ var canvas = document.getElementById("canvas");
+ var context = canvas.getContext('2d');
+        window.onload = function(){
+            var img = document.getElementById("input");
+            canvas.height = img.height;
+            context.drawImage(img,0,0);
+            var ImageData = context.getImageData(0,0, img.width, img.height);
+            console.log(ImageData);
+
+            document.getElementById("infile").addEventListener("change", handleFile);
+        }
+
+        function handleFile(event){
+            var reader = new FileReader;//Object with soul purpose of reading data from blob
+            var imgURL = reader.readAsDataURL(event.target.files[0]);//read binary data encode as B64
+            
+            reader.onload = function(event){
+                var img = new Image;
+                img.src  = event.target.result;
+                console.log(img);
+            }
+        }
+
+</script>
+    
+  </body>
+</html>
