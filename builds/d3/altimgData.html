@@ -25,17 +25,24 @@
             var ImageData = context.getImageData(0,0, img.width, img.height);
             console.log(ImageData);
 
-            document.getElementById("infile").addEventListener("change", handleFile);
+            document.getElementById('infile').addEventListener('change', handleFile);
         }
 
         function handleFile(event){
             var reader = new FileReader;//Object with soul purpose of reading data from blob
-            var imgURL = reader.readAsDataURL(event.target.files[0]);//read binary data encode as B64
+                reader.readAsDataURL(event.target.files[0]);//read binary data encode as B64
             
             reader.onload = function(event){
                 var img = new Image;
                 img.src  = event.target.result;
                 console.log(img);
+                img.onload = function () {
+
+                    canvas.height = img.height;
+            context.drawImage(img,0,0);
+            var ImageData = context.getImageData(0,0, img.width, img.height);
+            console.log(ImageData);
+                }
             }
         }
 
