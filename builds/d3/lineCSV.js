@@ -18,12 +18,25 @@ function drawChart(){
                       //skapa ritunderlag
 
         var width = 800, height = 500;
-        
-                
-        });
-    /*d3.v4 versionen
-    d3.csv("lineData.csv").get(function(data){
-        console.log(data);
-    });*/
+        var canvas = d3.select('body').append('svg').attr('width', width).attr('height', height);
 
-}
+
+
+            var yScale = d3.scaleLinear()
+                .domain([d3.min(temps), d3.max(temps)])   //vilka värden konverteras till pixelvärden
+                .range([0,height]);   //pixelvärden ska läggas mellan vilka värden
+
+        //genererar linje för path
+        var dString = d3.line()
+            .x(function(data) { return data.Month })
+            .y(function(data) { return yScale(data.Temp) });
+            console.log(dString(data));
+
+            canvas.append('path')
+                .attr('fill, none')
+                .attr('stroke','blue')
+                .attr('d', dString(data));
+    
+                
+    });
+};
