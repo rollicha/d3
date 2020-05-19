@@ -15,13 +15,12 @@ function drawChart(){
                 console.log(months);
                 console.log(temps);
 
-        });
-
-
-        //skapa ritunderlag
+                      //skapa ritunderlag
 
         var width = 800, height = 500;
-
+        
+                
+        });
     /*d3.v4 versionen
     d3.csv("lineData.csv").get(function(data){
         console.log(data);
