@@ -3,7 +3,7 @@ function drawChart(){
 
     //d3.v5 versionen
     //d3.csv("lineData.csv").then(function(data)
-    d3.csv("lineData.csv").get(function (error,data)    {
+    d3.csv("lineData.csv").get(function (error,data) {
             //console.log(data);
             //document.write (JSON.stringify(data));
 
