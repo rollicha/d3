@@ -37,13 +37,22 @@ function drawChart(){
         var dString = d3.line()
             .x(function(d) { return xScale(d.month) })
             .y(function(d) { return yScale(d.temp) });
-
-
+        //ritar linjen
             canvas.append('path')
                 .attr('fill', 'none')
-                .attr("stroke","blue")
+                .attr("stroke","black")
                 .attr('d', dString(dataFix));
-    
+        //adds dots
+        var dotsGroup = canvas.append('g');
+
+        dotsGroup.selectAll('dots').data(dataFix)
+            .enter()
+                .append('circle')
+                .attr('cx', function(d) {return xScale(d.month) } )
+                .attr('cy', function(d) {return yScale (d.temp)})
+                .attr('r', '2')
+                .attr('fill', 'red');
+            
                 
     });
 };
