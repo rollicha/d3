@@ -41,8 +41,8 @@ function drawHistogram(){
         console.log(klasser);
         console.log(frekvenser);
         //skapa scales
-            var xScale = d3.scaleBand().domain(names).range([0,chartWidth]);
-            var yScale = d3.scaleLinear().domain([0, d3.max(heights)]).range([chartHeight,0]);
+            var xScale = d3.scaleBand().domain(klasser).range([0,chartWidth]);
+            var yScale = d3.scaleLinear().domain([0, d3.max(frekvenser)]).range([chartHeight,0]);
          
         //skapa axlarna
             var xAxis = d3.axisBottom(xScale);
@@ -54,15 +54,15 @@ function drawHistogram(){
             .attr("height", height);
         
         //skapa en grupp som inte täcker hela ritunderlaget (margins)
-        var chartGroup = canvas.append("g").attr("transform", "translate("+margin+ ",0)");
+        var chartGroup = canvas.append("g").attr("transform", "translate("+margin+ ","+margin+")");
 
         //rita in staplar
-            chartGroup.selectAll("staplar").data(heights).enter()
+            chartGroup.selectAll("staplar").data(frekvenser).enter()
                 .append("rect")
                 .attr("width", barWidth)
-                .attr("height", function(data,i){ return chartHeight-yScale(data)})
-                .attr("x", function(data,i){return i*(barWidth + barpadding)})
-                .attr("y", function(data,i){return yScale(data)});
+                .attr("height", function(d,i){ return chartHeight-yScale(d)})
+                .attr("x", function(d,i){return i*(barWidth + barpadding)})
+                .attr("y", function(d,i){return yScale(d)});
 
         //rita axlar
             chartGroup.append("g").call(yAxis);
