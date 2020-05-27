@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Histogram (klasser och frekvens</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="histojs.js"></script>
+  </head>
+  <body>
+
+<h1>Histogram RGB</h1>
+<div id="row">
+    <input type="file" id="imageFile" accept=".png, .jpg, .jpeg"></input>
+    <button id="red" class="focuser">++R</button>
+    <button id="green" class="focuser">++G</button>
+    <button id="blue" class="focuser">++B</button>
+    <button id="blend" class="focuser">Blend</button>
+  </div>
+  <div id="row"><svg width="1" height="1"></svg></div>
+  <div id="row"><canvas id="C"></canvas></div>
+
+  </body>
+</html>
