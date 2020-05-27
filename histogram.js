@@ -20,10 +20,10 @@ function drawHistogram(){
         console.log(names);
         console.log(heights);
 
-        var klasser = ["160-169","170-179","180-189","190-199","200-209","210-219","220-229","230-239",];
+        var klasser = ["180-189","190-199","200-209","210-219","220-229","230-239",];
         var frekvenser = [];
         var klassStorlek = 10; //binsize 
-        var klass = 160; //vilken klass vi är i 
+        var klass = 180; //vilken klass vi är i 
         var antalKlasser = klasser.length;//hur många kategorier har vi
 
         for (i=0;i<antalKlasser; i++){
@@ -61,7 +61,7 @@ function drawHistogram(){
                 .append("rect")
                 .attr("width", barWidth)
                 .attr("height", function(d,i){ return chartHeight-yScale(d)})
-                .attr("x", function(d,i){return i*(barWidth + barpadding)})
+                .attr("x", function(d,i){return i*(chartWidth/antalKlasser)+barpadding+barWidth/2})
                 .attr("y", function(d,i){return yScale(d)});
 
         //rita axlar
