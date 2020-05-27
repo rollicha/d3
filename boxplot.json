@@ -1,7 +1,6 @@
 {
     "temperatures":
     [
-
         {"hour": 0, "temp": 10.9},
         {"hour": 1, "temp": 11.1},
         {"hour": 2, "temp": 11.4},
@@ -26,7 +25,7 @@
         {"hour": 21, "temp": 18.4},
         {"hour": 22, "temp": 18.7},
         {"hour": 23, "temp": 18.8},
-        {"hour": 24, "temp": 20.1}
+        {"hour": 24, "temp": 2.1}
 
     ]
 }
